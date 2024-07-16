@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Case 4</title>
+    </head>
+    <body>
+    <script>
+        "use strict";
+
+        /*4. Задана числовая последовательность. Напечатать положительные числа в порядке убывания, используя метод сортировки бинарными включениями. 
+        Числа вводятся через пробел в одном окне prompt.*/
+        
+        function sortPositiveNumbers(numbersString) {
+            let numbers = numbersString.split(" ").map(Number);
+            let positiveNumbers = numbers.filter(number => number > 0); // Фильтрация положительных чисел
+
+            // Сортировка бинарным включением
+            for (let i = 1; i < positiveNumbers.length; i++) {
+                let currentNumber = positiveNumbers[i];
+                let j = i - 1;
+
+                while (j >= 0 && positiveNumbers[j] < currentNumber) { // Сравнение с элементами слева
+                positiveNumbers[j + 1] = positiveNumbers[j]; // Сдвиг элементов вправо
+                j--;
+                }
+                positiveNumbers[j + 1] = currentNumber; // Вставка текущего элемента
+            }
+
+            return positiveNumbers;
+            }
+
+            let numbersString = prompt("Введите числа через пробел:");
+            let sortedPositiveNumbers = sortPositiveNumbers(numbersString);
+            alert("Положительные числа в порядке убывания: " + sortedPositiveNumbers.join(", "));
+    </script>
+    </body>
+</html>

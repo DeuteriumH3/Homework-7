@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Case 2</title>
+    </head>
+    <body>
+    <script>
+        "use strict";
+
+        /*2. Дана последовательность натуральных чисел. Создать массив из четных чисел заданной последовательности. Если таких чисел нет, 
+        то вывести сообщение об этом. Числа вводятся через пробел в одном диалоговом окне prompt.*/
+
+        function findEvenNumbers() {
+            let numbersString = prompt("Введите числа через пробел:");
+            let numbers = numbersString.split(" ").map(Number);
+            let evenNumbers = [];
+
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] % 2 === 0) { // Проверка на чётность
+                evenNumbers.push(numbers[i]); // Добавление чётного числа в массив
+                }
+            }
+
+            if (evenNumbers.length > 0) {
+                return evenNumbers;
+            } else {
+                return "В последовательности нет четных чисел.";
+            }
+            }
+
+            let result = findEvenNumbers();
+            alert("Чётные числа:", result);
+    </script>
+    </body>
+</html>

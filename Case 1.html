@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Case 1</title>
+    </head>
+    <body>
+    <script>
+        "use strict";
+
+        /*1. В целочисленной последовательности есть нулевые элементы. Создать массив из номеров этих элементов. Числа вводятся через пробел 
+        в одном диалоговом окне prompt.*/
+
+        function findZeroElements() {
+            let numbersString = prompt("Введите числа через пробел:");
+            let numbers = numbersString.split(" ").map(Number); // Разделение строки на числа
+            let zeroIndexes = [];
+
+            // Проход по массиву чисел
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] === 0) { // Проверка на нулевой элемент
+                zeroIndexes.push(i); // Добавление индекса в массив
+                }
+            }
+
+            return zeroIndexes;
+            }
+
+            let indexes = findZeroElements();
+            if (indexes.length > 0) {
+            alert("Индексы нулевых элементов: " + indexes.join(", "));
+            } else {
+            alert("В последовательности нет нулевых элементов.");
+            }
+    </script>
+    </body>
+</html>
